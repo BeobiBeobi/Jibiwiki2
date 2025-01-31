@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>논란 작성 - 지비위키</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 2rem 0;
+        }
+        .write-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .card-header {
+            background-color: #007bff;
+            color: white;
+            border-top-left-radius: 15px !important;
+            border-top-right-radius: 15px !important;
+            padding: 1.5rem;
+        }
+        .btn-select {
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            padding: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .btn-select:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .home-button {
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container write-container">
+        <button onclick="window.location.href='/'" class="btn btn-dark home-button">
+            홈으로 돌아가기
+        </button>
+        
+        <div class="card">
+            <div class="card-header">
+                <h2 class="text-center mb-0">논란을 작성할 상대를 선택하세요!</h2>
+            </div>
+            <div class="card-body">
+                <div class="btn-group-vertical w-100">
+                    <button onclick="goToLink(this, '/write/Beobi')" class="btn btn-dark btn-select">버비</button>
+                    <button onclick="goToLink(this, '/write/Jibi')" class="btn btn-primary btn-select">지비</button>
+                    <button onclick="goToLink(this, '/write/Jini')" class="btn btn-success btn-select">지니</button>
+                    <button onclick="goToLink(this, '/write/Seobin')" class="btn btn-danger btn-select">서빈</button>
+                    <button onclick="goToLink(this, '/write/Ddonggae')" class="btn btn-warning btn-select">똥개</button>
+                    <button onclick="goToLink(this, '/write/Namgyu')" class="btn btn-secondary btn-select">남규</button>
+                    <button onclick="goToLink(this, '/write/Seoyeon')" class="btn btn-info btn-select">서연</button>
+                    <button onclick="goToLink(this, '/write/Yumin')" class="btn btn-primary btn-select">유만</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ 
+    </div>
+    <script>
+      function goToLink(buttonElement, url) {
+    const buttonText = buttonElement.textContent.trim();
+    localStorage.setItem('category', buttonText);
+    window.location.href = url;
+}
+    </script>
+
+</body>
+</html>

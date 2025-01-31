@@ -1,0 +1,1832 @@
+<!doctype html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
+
+    <style>
+/* 버비 스타일 - 네이비 블루 테마 */
+.beobi-header {
+        background: linear-gradient(45deg, #1e3799, #4a69bd) !important;
+        border-bottom: none;
+        padding: 15px 20px;
+        border-radius: 10px 10px 0 0;
+    }
+
+    #BeobiPosts .list-group-item {
+        border-left: 4px solid #4a69bd;
+        transition: all 0.3s ease;
+    }
+
+    #BeobiPosts .list-group-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(74, 105, 189, 0.2);
+        border-left: 4px solid #1e3799;
+    }
+
+    #BeobiPosts .post-username {
+        background-color: #f1f2f6;
+        color: #1e3799;
+    }
+
+    /* 지니 스타일 - 그린 테마 */
+    .jini-header {
+        background: linear-gradient(45deg, #20bf6b, #26de81) !important;
+        border-bottom: none;
+        padding: 15px 20px;
+        border-radius: 10px 10px 0 0;
+    }
+
+    #JiniPosts .list-group-item {
+        border-left: 4px solid #26de81;
+        transition: all 0.3s ease;
+    }
+
+    #JiniPosts .list-group-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(38, 222, 129, 0.2);
+        border-left: 4px solid #20bf6b;
+    }
+
+    #JiniPosts .post-username {
+        background-color: #e8f3ec;
+        color: #20bf6b;
+    }
+
+    /* 똥개 스타일 - 오렌지 테마 */
+    .ddongge-header {
+    background: linear-gradient(45deg, #ffd32a, #ffb142) !important;  /* 노란색 그라데이션 */
+    border-bottom: none;
+    padding: 15px 20px;
+    border-radius: 10px 10px 0 0;
+}
+
+#DdonggaePosts .list-group-item {
+    border-left: 4px solid #ffb142;  /* 왼쪽 테두리 노란색 */
+    transition: all 0.3s ease;
+}
+
+#DdonggaePosts .list-group-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(255, 211, 42, 0.2);  /* 노란색 그림자 */
+    border-left: 4px solid #ffd32a;  /* 호버 시 더 밝은 노란색 */
+}
+
+#DdonggaePosts .post-username {
+    background-color: #fff8e1;  /* 연한 노란색 배경 */
+    color: #ffb142;  /* 노란색 텍스트 */
+}
+
+    /* 서빈 스타일 - 퍼플 테마 */
+    .seobin-header {
+        background: linear-gradient(45deg, #8854d0, #a55eea) !important;
+        border-bottom: none;
+        padding: 15px 20px;
+        border-radius: 10px 10px 0 0;
+    }
+
+    #SeobinPosts .list-group-item {
+        border-left: 4px solid #a55eea;
+        transition: all 0.3s ease;
+    }
+
+    #SeobinPosts .list-group-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(165, 94, 234, 0.2);
+        border-left: 4px solid #8854d0;
+    }
+
+    #SeobinPosts .post-username {
+        background-color: #f3eefb;
+        color: #8854d0;
+    }
+
+    /* 남규 스타일 - 터콰이즈 테마 */
+    .namgyu-header {
+    background: linear-gradient(45deg, #2d3436, #636e72) !important;  /* 회색 그라데이션 */
+    border-bottom: none;
+    padding: 15px 20px;
+    border-radius: 10px 10px 0 0;
+}
+
+#NamgyuPosts .list-group-item {
+    border-left: 4px solid #636e72;  /* 왼쪽 테두리 회색 */
+    transition: all 0.3s ease;
+}
+
+#NamgyuPosts .list-group-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(45, 52, 54, 0.2);  /* 회색 그림자 */
+    border-left: 4px solid #2d3436;  /* 호버 시 더 진한 회색 */
+}
+
+#NamgyuPosts .post-username {
+    background-color: #f1f2f3;  /* 연한 회색 배경 */
+    color: #2d3436;  /* 진한 회색 텍스트 */
+}
+
+    /* 서연 스타일 - 레드 테마 */
+    .seoyeon-header {
+        background: linear-gradient(45deg, #eb3b5a, #fc5c65) !important;
+        border-bottom: none;
+        padding: 15px 20px;
+        border-radius: 10px 10px 0 0;
+    }
+
+    #SeoyeonPosts .list-group-item {
+        border-left: 4px solid #fc5c65;
+        transition: all 0.3s ease;
+    }
+
+    #SeoyeonPosts .list-group-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(252, 92, 101, 0.2);
+        border-left: 4px solid #eb3b5a;
+    }
+
+    #SeoyeonPosts .post-username {
+        background-color: #fdeeef;
+        color: #eb3b5a;
+    }
+
+    /* 유만 스타일 - 스카이블루 테마 */
+    .yumin-header {
+        background: linear-gradient(45deg, #45aaf2, #2d98da) !important;
+        border-bottom: none;
+        padding: 15px 20px;
+        border-radius: 10px 10px 0 0;
+    }
+
+    #YuminPosts .list-group-item {
+        border-left: 4px solid #2d98da;
+        transition: all 0.3s ease;
+    }
+
+    #YuminPosts .list-group-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(45, 152, 218, 0.2);
+        border-left: 4px solid #3ea4ec;
+    }
+
+    #YuminPosts .post-username {
+        background-color: #e9f5fc;
+        color: #2d98da;
+    }
+
+       .jibi-header {
+        background: linear-gradient(45deg, #FF69B4, #FFB6C1) !important;  /* 핑크색 그라데이션 */
+        border-bottom: none;
+        padding: 15px 20px;
+        border-radius: 10px 10px 0 0;
+    }
+
+    #JibiPosts .list-group-item {
+        border-left: 4px solid #FF69B4;  /* 왼쪽 테두리 핑크색 */
+        transition: all 0.3s ease;
+    }
+
+    #JibiPosts .list-group-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);  /* 핑크색 그림자 */
+        border-left: 4px solid #FF1493;  /* 호버 시 더 진한 핑크색 */
+    }
+
+    #JibiPosts .post-username {
+        background-color: #FFF0F5;  /* 연한 핑크색 배경 */
+        color: #FF69B4;  /* 핑크색 텍스트 */
+    }
+
+       .warning-link {
+            color: #dc3545 !important;
+            font-weight: bold !important;
+            animation: pulse 2s infinite;
+        }
+
+        .warning-link:hover {
+            color: #bd2130 !important;
+            text-decoration: underline !important;
+        }
+
+        .upload-link {
+            color: #007bff !important;
+            font-weight: bold !important;
+            transition: all 0.3s ease;
+        }
+
+        .upload-link:hover {
+            color: #0056b3 !important;
+            text-decoration: underline !important;
+            transform: translateY(-2px);
+        }
+
+        
+          .brand-logo {
+            font-size: 1.8rem !important;
+            font-weight: 800 !important;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            padding: 5px 15px !important;
+            border-radius: 10px;
+            background: linear-gradient(45deg, #00b4db, #0083B0);  /* 하늘색 그라데이션 */
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .brand-logo:hover {
+            transform: scale(1.05);
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+        }
+
+        .brand-logo::before {
+            content: "📚";
+            margin-right: 8px;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+            /* 기존 스타일 유지 */
+    .logout-link {
+        color: #6c757d !important;
+        font-weight: bold !important;
+        transition: all 0.3s ease;
+    }
+
+    .logout-link:hover {
+        color: #5a6268 !important;
+        transform: translateY(-2px);
+    }
+
+    .user-section {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .current-user {
+        color: #495057;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 0.9rem;
+    }
+
+    .current-user strong {
+        color: #00b4db;
+        font-weight: bold;
+    }
+
+    .logout-btn {
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-weight: bold;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .logout-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+
+    @media (max-width: 768px) {
+        .user-section {
+            margin-top: 10px;
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+        
+    .thinking-link {
+        color: #6c757d !important;
+        font-weight: bold !important;
+        transition: all 0.3s ease;
+        opacity: 0.8;
+    }
+
+    .thinking-link:hover {
+        color: #5a6268 !important;
+        transform: translateY(-2px);
+        opacity: 1;
+    }
+
+    .thinking-animation {
+        animation: thinking 1s infinite;
+    }
+
+    @keyframes thinking {
+        0% { transform: rotate(0deg); }
+        25% { transform: rotate(-10deg); }
+        75% { transform: rotate(10deg); }
+        100% { transform: rotate(0deg); }
+    }
+.card-header {
+    background: linear-gradient(45deg, #f8f9fa, #ffffff);
+    border-bottom: 3px solid;
+    padding: 1.5rem;
+}
+
+.card-header h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 각 카테고리별 색상 테마 */
+.beobi-header {
+    border-color: #FF6B6B;
+}
+.beobi-header h2:before {
+    content: "🦦";
+}
+
+.jibi-header {
+    border-color: #4ECDC4;
+}
+.jibi-header h2:before {
+    content: "👽";
+}
+
+.jini-header {
+    border-color: #45B7D1;
+}
+.jini-header h2:before {
+    content: "👻";
+}
+
+.seobin-header {
+    border-color: #96CEB4;
+}
+.seobin-header h2:before {
+    content: "👾";
+}
+
+.ddongge-header {
+    border-color: #D4A373;
+}
+.ddongge-header h2:before {
+    content: "🐕";
+}
+
+.namgyu-header {
+    border-color: #6C757D;
+}
+.namgyu-header h2:before {
+    content: "🥵";
+}
+
+.seoyeon-header {
+    border-color: #FF9F9F;
+}
+.seoyeon-header h2:before {
+    content: "🌟";
+}
+
+.yumin-header {
+    border-color: #95B8D1;
+}
+.yumin-header h2:before {
+    content: "😨";
+}
+
+/* 호버 효과 */
+.card-header:hover {
+    transform: translateY(-2px);
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* 정렬 버튼 컨테이너 스타일링 */
+.sort-buttons {
+    margin-top: 1rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.sort-buttons .btn-group {
+    display: flex;
+    gap: 8px;
+}
+
+.sort-buttons .btn {
+    border-radius: 20px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    flex: 1;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .card-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .sort-buttons .btn {
+        font-size: 0.8rem;
+        padding: 0.375rem 0.5rem;
+    }
+}
+
+/* 카드 스타일링 */
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+
+/* 탭 내용 여백 */
+.tab-pane {
+    padding: 20px 0;
+}
+
+.user-info {
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .user-level {
+            font-weight: bold;
+            margin-right: 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .user-exp {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .post-username .user-level {
+            margin-left: 5px;
+            font-size: 0.9em;
+        }
+
+        .level-icon {
+            font-size: 1.2em;
+            margin-right: 3px;
+        }
+    </style>
+    <div class="container mt-4"></div>
+        <div id="userInfo" class="mb-3"></div>
+        
+    <title>지비위키</title>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+          <a class="navbar-brand brand-logo" href="#">지비위키</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav mx-auto">
+                  <li class="nav-item">
+                      <a class="nav-link upload-link" href="/write">📝 논란 업로드</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link warning-link" href="/warning">⚠️ 주의할 점</a>
+                  </li>
+                  <li class="nav-item"></li>
+                    <a class="nav-link thinking-link" href="#" onclick="showThinking(event)">🤔 고민중...</a>
+                </li>
+              </ul>
+              <div class="user-section">
+                  <span class="current-user">👤 <strong id="currentUsername"></strong> 님</span>
+                  <button class="btn btn-outline-danger logout-btn" onclick="handleLogout()">
+                      로그아웃
+                  </button>
+              </div>
+          </div>
+      </div>
+  </nav>
+            
+            
+          
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">크리스토퍼 놀란 감독도 놀라는 논란들</h1>
+        <p class="lead">인생을 살면서 기분을 나쁘게 하고 창백한 얼굴에 까만 정장을 입고 죄송합니다 영상을 찍을만한 논란 거리들을 모았어요</p>
+       
+      </div>
+
+      
+    </div>
+  </div>
+  <div class="container mt-4">
+    <h1 class="text-center mb-5">논란들</h1>
+    <div class="row">
+      <!-- 버비 섹션 -->
+      <ul class="nav nav-tabs mb-4" id="categoryTabs" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="beobi-tab" data-toggle="tab" href="#beobi-content" role="tab">
+                버비의 논란
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="jibi-tab" data-toggle="tab" href="#jibi-content" role="tab">
+                지비의 논란
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="jini-tab" data-toggle="tab" href="#jini-content" role="tab">
+                지니의 논란
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="seobin-tab" data-toggle="tab" href="#seobin-content" role="tab">
+                서빈의 논란
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="ddonggae-tab" data-toggle="tab" href="#ddonggae-content" role="tab">
+                똥개의 논란
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="namgyu-tab" data-toggle="tab" href="#namgyu-content" role="tab">
+                남규의 논란
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="seoyeon-tab" data-toggle="tab" href="#seoyeon-content" role="tab">
+                서연의 논란
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="yumin-tab" data-toggle="tab" href="#yumin-content" role="tab">
+                유만의 논란
+            </a>
+        </li>
+    </ul>
+    <div class="tab-content" id="categoryTabContent">
+        <!-- 버비 탭 -->
+        <div class="tab-pane fade show active" id="beobi-content" role="tabpanel">
+            <div class="card mb-4">
+                <div class="card-header beobi-header">
+                    <h2>버비의 논란</h2>
+                    <div class="sort-buttons">
+                        <div class="btn-group" role="group">
+                            <button class="btn btn-outline-primary btn-sm" onclick="sortPosts('latest', 'BeobiPosts')">
+                                최신순 🔽
+                            </button>
+                            <button class="btn btn-outline-primary btn-sm" onclick="sortPosts('oldest', 'BeobiPosts')">
+                                오래된순 🔼
+                            </button>
+                            <button class="btn btn-outline-danger btn-sm" onclick="sortPosts('likes', 'BeobiPosts')">
+                                좋아요순 ❤️
+                            </button>
+                            <button class="btn btn-outline-info btn-sm" onclick="sortPosts('explanation', 'BeobiPosts')">
+                                해명있는글 💬
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <ul class="list-group list-group-flush" id="BeobiPosts"></ul>
+            </div>
+        </div>
+
+        <div class="tab-pane fade" id="jibi-content" role="tabpanel">
+            <div class="card mb-4">
+                <div class="card-header jibi-header">
+                    <h2>지비의 논란</h2>
+                    <div class="sort-buttons">
+                        <div class="btn-group" role="group">
+                            <button class="btn btn-outline-primary btn-sm" onclick="sortPosts('latest', 'JibiPosts')">
+                                최신순 🔽
+                            </button>
+                            <button class="btn btn-outline-primary btn-sm" onclick="sortPosts('oldest', 'JibiPosts')">
+                                오래된순 🔼
+                            </button>
+                            <button class="btn btn-outline-danger btn-sm" onclick="sortPosts('likes', 'JibiPosts')">
+                                좋아요순 ❤️
+                            </button>
+                            <button class="btn btn-outline-info btn-sm" onclick="sortPosts('explanation', 'JibiPosts')">
+                                해명있는글 💬
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <ul class="list-group list-group-flush" id="JibiPosts"></ul>
+            </div>
+        </div>
+    
+        <!-- 지니 탭 -->
+        <div class="tab-pane fade" id="jini-content" role="tabpanel">
+            <div class="card mb-4">
+                <div class="card-header jini-header">
+                    <h2>지니의 논란</h2>
+                    <div class="sort-buttons">
+                        <div class="btn-group" role="group">
+                            <button class="btn btn-outline-primary btn-sm" onclick="sortPosts('latest', 'JiniPosts')">
+                                최신순 🔽
+                            </button>
+                            <button class="btn btn-outline-primary btn-sm" onclick="sortPosts('oldest', 'JiniPosts')">
+                                오래된순 🔼
+                            </button>
+                            <button class="btn btn-outline-danger btn-sm" onclick="sortPosts('likes', 'JiniPosts')">
+                                좋아요순 ❤️
+                            </button>
+                            <button class="btn btn-outline-info btn-sm" onclick="sortPosts('explanation', 'JiniPosts')">
+                                해명있는글 💬
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <ul class="list-group list-group-flush" id="JiniPosts"></ul>
+            </div>
+        </div>
+    
+        <!-- 서빈 탭 -->
+        <div class="tab-pane fade" id="seobin-content" role="tabpanel">
+            <div class="card mb-4">
+                <div class="card-header seobin-header">
+                    <h2>서빈의 논란</h2>
+                    <div class="sort-buttons">
+                        <div class="btn-group" role="group">
+                            <button class="btn btn-outline-primary btn-sm" onclick="sortPosts('latest', 'SeobinPosts')">
+                                최신순 🔽
+                            </button>
+                            <button class="btn btn-outline-primary btn-sm" onclick="sortPosts('oldest', 'SeobinPosts')">
+                                오래된순 🔼
+                            </button>
+                            <button class="btn btn-outline-danger btn-sm" onclick="sortPosts('likes', 'SeobinPosts')">
+                                좋아요순 ❤️
+                            </button>
+                            <button class="btn btn-outline-info btn-sm" onclick="sortPosts('explanation', 'SeobinPosts')">
+                                해명있는글 💬
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <ul class="list-group list-group-flush" id="SeobinPosts"></ul>
+            </div>
+        </div>
+    
+        <!-- 똥개 탭 -->
+        <div class="tab-pane fade" id="ddonggae-content" role="tabpanel">
+            <div class="card mb-4">
+                <div class="card-header ddongge-header">
+                    <h2>똥개의 논란</h2>
+                    <div class="sort-buttons">
+                        <div class="btn-group" role="group">
+                            <button class="btn btn-outline-primary btn-sm" onclick="sortPosts('latest', 'DdonggaePosts')">
+                                최신순 🔽
+                            </button>
+                            <button class="btn btn-outline-primary btn-sm" onclick="sortPosts('oldest', 'DdonggaePosts')">
+                                오래된순 🔼
+                            </button>
+                            <button class="btn btn-outline-danger btn-sm" onclick="sortPosts('likes', 'DdonggaePosts')">
+                                좋아요순 ❤️
+                            </button>
+                            <button class="btn btn-outline-info btn-sm" onclick="sortPosts('explanation', 'DdonggaePosts')">
+                                해명있는글 💬
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <ul class="list-group list-group-flush" id="DdonggaePosts"></ul>
+            </div>
+        </div>
+    
+        <!-- 남규 탭 -->
+        <div class="tab-pane fade" id="namgyu-content" role="tabpanel">
+            <div class="card mb-4">
+                <div class="card-header namgyu-header">
+                    <h2>남규의 논란</h2>
+                    <div class="sort-buttons">
+                        <div class="btn-group" role="group">
+                            <button class="btn btn-outline-primary btn-sm" onclick="sortPosts('latest', 'NamgyuPosts')">
+                                최신순 🔽
+                            </button>
+                            <button class="btn btn-outline-primary btn-sm" onclick="sortPosts('oldest', 'NamgyuPosts')">
+                                오래된순 🔼
+                            </button>
+                            <button class="btn btn-outline-danger btn-sm" onclick="sortPosts('likes', 'NamgyuPosts')">
+                                좋아요순 ❤️
+                            </button>
+                            <button class="btn btn-outline-info btn-sm" onclick="sortPosts('explanation', 'NamgyuPosts')">
+                                해명있는글 💬
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <ul class="list-group list-group-flush" id="NamgyuPosts"></ul>
+            </div>
+        </div>
+    
+        <!-- 서연 탭 -->
+        <div class="tab-pane fade" id="seoyeon-content" role="tabpanel">
+            <div class="card mb-4">
+                <div class="card-header seoyeon-header">
+                    <h2>서연의 논란</h2>
+                    <div class="sort-buttons">
+                        <div class="btn-group" role="group">
+                            <button class="btn btn-outline-primary btn-sm" onclick="sortPosts('latest', 'SeoyeonPosts')">
+                                최신순 🔽
+                            </button>
+                            <button class="btn btn-outline-primary btn-sm" onclick="sortPosts('oldest', 'SeoyeonPosts')">
+                                오래된순 🔼
+                            </button>
+                            <button class="btn btn-outline-danger btn-sm" onclick="sortPosts('likes', 'SeoyeonPosts')">
+                                좋아요순 ❤️
+                            </button>
+                            <button class="btn btn-outline-info btn-sm" onclick="sortPosts('explanation', 'SeoyeonPosts')">
+                                해명있는글 💬
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <ul class="list-group list-group-flush" id="SeoyeonPosts"></ul>
+            </div>
+        </div>
+    
+        <!-- 유만 탭 -->
+        <div class="tab-pane fade" id="yumin-content" role="tabpanel">
+            <div class="card mb-4">
+                <div class="card-header yumin-header">
+                    <h2>유만의 논란</h2>
+                    <div class="sort-buttons">
+                        <div class="btn-group" role="group">
+                            <button class="btn btn-outline-primary btn-sm" onclick="sortPosts('latest', 'YuminPosts')">
+                                최신순 🔽
+                            </button>
+                            <button class="btn btn-outline-primary btn-sm" onclick="sortPosts('oldest', 'YuminPosts')">
+                                오래된순 🔼
+                            </button>
+                            <button class="btn btn-outline-danger btn-sm" onclick="sortPosts('likes', 'YuminPosts')">
+                                좋아요순 ❤️
+                            </button>
+                            <button class="btn btn-outline-info btn-sm" onclick="sortPosts('explanation', 'YuminPosts')">
+                                해명있는글 💬
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <ul class="list-group list-group-flush" id="YuminPosts"></ul>
+            </div>
+        </div>
+    </div>
+    
+</div>
+  </div>
+  <head>
+    <!-- 기존 코드 유지 -->
+    <style>
+         .navbar {
+        padding: 15px 0;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .navbar-nav {
+        gap: 20px;  /* 메뉴 항목 사이 간격 */
+    }
+
+    .nav-link {
+        padding: 8px 16px !important;
+    }
+
+    .user-section {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .current-user {
+        color: #495057;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 0.95rem;
+        margin-right: 5px;
+    }
+
+    .current-user strong {
+        color: #00b4db;
+        font-weight: bold;
+    }
+
+    .logout-btn {
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .logout-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 2px 4px rgba(220,53,69,0.2);
+    }
+
+    .brand-logo {
+        margin-right: 30px;
+    }
+
+    .upload-link, .warning-link {
+        border-radius: 20px;
+        transition: all 0.3s ease;
+    }
+
+    .upload-link:hover, .warning-link:hover {
+        background-color: rgba(0,0,0,0.05);
+    }
+
+    @media (max-width: 991px) {
+        .navbar-collapse {
+            margin-top: 15px;
+        }
+
+        .user-section {
+            margin-top: 15px;
+            justify-content: center;
+        }
+
+        .navbar-nav {
+            text-align: center;
+            margin: 15px 0;
+        }
+    }
+
+    .list-group-item {
+        border: none;
+        border-radius: 15px !important;
+        margin-bottom: 15px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+        padding: 20px;
+        background: white;
+    }
+
+    .list-group-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .post-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .post-title {
+        font-family: 'Poor Story', cursive;
+        font-size: 1.3rem;
+        color: #2c3e50;
+        margin-right: 10px;
+    }
+
+    .post-username {
+        font-family: 'Noto Sans KR', sans-serif;
+        background-color: #e3f2fd;
+        color: #1976d2;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+
+    .post-content {
+        font-family: 'Noto Sans KR', sans-serif;
+        color: #444;
+        line-height: 1.6;
+        margin: 15px 0;
+        font-size: 1rem;
+    }
+
+    .post-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 15px;
+        padding-top: 10px;
+        border-top: 1px solid #eee;
+    }
+
+    .post-timestamp {
+        color: #888;
+        font-size: 0.85rem;
+    }
+
+    .delete-btn {
+        padding: 5px 15px;
+        border-radius: 15px;
+        font-size: 0.9rem;
+        transition: all 0.2s ease;
+    }
+
+    .delete-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 2px 4px rgba(220,53,69,0.2);
+    }
+
+    .btn-like {
+        background: none;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .btn-like:hover {
+        transform: scale(1.1);
+    }
+
+    .btn-like.liked {
+        animation: like-animation 0.3s ease;
+    }
+
+    .like-count {
+        font-size: 0.9rem;
+        color: #666;
+        margin-left: 5px;
+    }
+
+    .post-actions {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    @keyframes like-animation {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+        100% { transform: scale(1); }
+    }
+
+    .explanation-box {
+        background-color: #f8f9fa;
+        border-left: 3px solid #007bff;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+    }
+
+    .explanation-label {
+        font-weight: bold;
+        color: #007bff;
+        margin-right: 8px;
+    }
+
+    .explanation-content {
+        color: #495057;
+    }
+
+    .explanation-time {
+        display: block;
+        color: #6c757d;
+        font-size: 0.8rem;
+        margin-top: 5px;
+    }
+
+    .explanation-form {
+        display: flex;
+        gap: 10px;
+        margin: 10px 0;
+    }
+
+    .explanation-input {
+        flex: 1;
+        border-radius: 20px;
+        padding: 5px 15px;
+    }
+
+    .explanation-form button {
+        border-radius: 20px;
+        padding: 5px 15px;
+    }
+
+    .sort-buttons {
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.sort-buttons .btn-group {
+    width: 100%;
+    display: flex;
+    gap: 5px;
+}
+
+.sort-buttons .btn {
+    flex: 1;
+    font-size: 0.8rem;
+    padding: 5px;
+}
+
+.sort-buttons .btn:hover {
+    transform: translateY(-2px);
+    transition: transform 0.2s;
+}
+
+.btn-outline-primary:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-outline-danger:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-outline-info:hover {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.nav-tabs {
+    border-bottom: 2px solid #dee2e6;
+}
+
+.nav-tabs .nav-link {
+    border: none;
+    color: #495057;
+    font-weight: 500;
+    padding: 12px 20px;
+    transition: all 0.3s ease;
+}
+
+.nav-tabs .nav-link:hover {
+    border: none;
+    color: #007bff;
+}
+
+.nav-tabs .nav-link.active {
+    border: none;
+    border-bottom: 3px solid #007bff;
+    color: #007bff;
+    font-weight: 600;
+}
+
+/* 반응형 탭 */
+@media (max-width: 768px) {
+    .nav-tabs {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .nav-tabs .nav-item {
+        white-space: nowrap;
+    }
+    
+    .nav-tabs::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+/* 기존 스타일 유지 */
+.sort-buttons {
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.sort-buttons .btn-group {
+    width: 100%;
+    display: flex;
+    gap: 5px;
+}
+
+.sort-buttons .btn {
+    flex: 1;
+    font-size: 0.8rem;
+    padding: 5px;
+}
+
+.card-header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card-header h2 {
+    margin: 0;
+}
+
+
+.like-container {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.like-text {
+    font-size: 0.8rem;
+    color: #6c757d;
+    margin-right: 2px;
+}
+
+.btn-like {
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.btn-like:hover {
+    transform: scale(1.2);
+}
+
+.like-count {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+/* 좋아요 눌렀을 때 텍스트 스타일 */
+.btn-like.liked + .like-text {
+    color: #dc3545;
+    font-weight: 500;
+}
+
+.user-info {
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.user-level {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.user-exp {
+    color: #666;
+}
+
+.post-username .user-level {
+    margin-left: 5px;
+    font-size: 0.9em;
+}
+
+.post-username .level-badge {
+    font-size: 0.8em;
+    padding: 2px 6px;
+    border-radius: 10px;
+    margin-left: 5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.level-bronze { background-color: #CD7F32; color: white; }
+.level-silver { background-color: #C0C0C0; color: white; }
+.level-gold { background-color: #FFD700; color: black; }
+.level-platinum { background-color: #E5E4E2; color: black; }
+.level-diamond { background-color: #B9F2FF; color: black; }
+.level-master { background-color: #FF4500; color: white; }
+
+
+@keyframes levelUpAnimation {
+        0% {
+            transform: scale(1);
+            opacity: 0;
+        }
+        50% {
+            transform: scale(1.5);
+            opacity: 1;
+        }
+        100% {
+            transform: scale(1);
+            opacity: 0;
+        }
+    }
+
+    .level-up-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .level-up-content {
+        text-align: center;
+        color: white;
+        animation: levelUpAnimation 2s ease-in-out;
+    }
+
+    .level-up-icon {
+        font-size: 5em;
+        margin-bottom: 20px;
+    }
+
+    .level-up-text {
+        font-size: 2em;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .confetti {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: #f00;
+        animation: confetti-fall 3s linear infinite;
+    }
+
+    @keyframes confetti-fall {
+        0% {
+            transform: translateY(-100vh) rotate(0deg);
+        }
+        100% {
+            transform: translateY(100vh) rotate(360deg);
+        }
+    }
+
+
+
+    </style>
+</head>
+
+  </div>
+    
+    <script>
+
+
+
+async function handleLike(postId) {
+        try {
+            const username = localStorage.getItem('username');
+            if (!username) {
+                alert('로그인이 필요합니다.');
+                return;
+            }
+
+            const response = await fetch(`/post/${postId}/like`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username })
+            });
+
+            const data = await response.json();
+            if (response.ok) {
+                const likeButton = document.querySelector(`#like-btn-${postId}`);
+                const likeCount = document.querySelector(`#like-count-${postId}`);
+                
+                likeButton.classList.toggle('liked');
+                likeCount.textContent = data.likes;
+                
+                // 좋아요 상태에 따라 버튼 스타일 변경
+                if (data.hasLiked) {
+                    likeButton.innerHTML = '❤️';
+                } else {
+                    likeButton.innerHTML = '🤍';
+                }
+            }
+        } catch (error) {
+            console.error('좋아요 오류:', error);
+            alert('좋아요 처리 중 오류가 발생했습니다.');
+        }
+    }
+    let postsCache = {
+    BeobiPosts: [],
+    JibiPosts: [],
+    JiniPosts: [],
+    SeobinPosts: [],
+    DdonggaePosts: [],
+    NamgyuPosts: [],
+    SeoyeonPosts: [],
+    YuminPosts: []
+};
+       // 로그인 체크 및 사용자 이름 표시
+    const username = localStorage.getItem('username');
+    if (!username) {
+        window.location.href = '/login.html';
+    } else {
+        document.getElementById('currentUsername').textContent = username;
+    }
+
+    // 로그아웃 함수
+    function handleLogout() {
+        if(confirm('정말 로그아웃 하시겠습니까?')) {
+            localStorage.removeItem('username');
+            window.location.href = '/login.html';
+        }
+    }
+
+    function isMasterUser(user) {
+        return user === 'master@0422';
+    }
+
+    $(document).ready(function() {
+    // 탭 전환 이벤트 리스너
+    $('#categoryTabs a').on('shown.bs.tab', function (e) {
+        const targetId = $(e.target).attr('href').replace('-content', 'Posts');
+        sortPosts('latest', targetId.substring(1));
+    });
+
+    // 초기 데이터 로드
+    fetch('/posts')
+        .then(response => response.json())
+        .then(posts => {
+            posts.forEach(post => {
+                if (post.category === '버비') {
+                    postsCache.BeobiPosts.push(post);
+                } else if (post.category === '지비') {
+                    postsCache.JibiPosts.push(post);
+                } else if (post.category === '지니') {
+                    postsCache.JiniPosts.push(post);
+                } else if (post.category === '서빈') {
+                    postsCache.SeobinPosts.push(post);
+                } else if (post.category === '똥개') {
+                    postsCache.DdonggaePosts.push(post);
+                } else if (post.category === '남규') {
+                    postsCache.NamgyuPosts.push(post);
+                } else if (post.category === '서연') {
+                    postsCache.SeoyeonPosts.push(post);
+                } else if (post.category === '유만') {
+                    postsCache.YuminPosts.push(post);
+                }
+            });
+
+            // 초기 렌더링
+            Object.keys(postsCache).forEach(categoryId => {
+                sortPosts('latest', categoryId);
+            });
+        });
+});
+
+    function sortPosts(sortType, categoryId) {
+    const posts = [...postsCache[categoryId]];
+    const container = document.getElementById(categoryId);
+    
+    switch(sortType) {
+        case 'latest':
+            posts.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+            break;
+        case 'oldest':
+            posts.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+            break;
+        case 'likes':
+            posts.sort((a, b) => b.likes.count - a.likes.count);
+            break;
+        case 'explanation':
+            posts.sort((a, b) => {
+                if (a.explanation && !b.explanation) return -1;
+                if (!a.explanation && b.explanation) return 1;
+                return new Date(b.timestamp) - new Date(a.timestamp);
+            });
+            break;
+    }
+    
+    container.innerHTML = '';
+    renderPosts(posts, categoryId);
+}
+
+async function renderPosts(posts, containerId) {
+    const container = document.getElementById(containerId);
+    const currentUser = localStorage.getItem('username');
+    container.innerHTML = '';
+
+    for (const post of posts) {
+        try {
+            // 게시물 작성자의 등급 정보 조회
+            const userResponse = await fetch(`/user/${post.username}`);
+            const userData = await userResponse.json();
+
+            const listItem = document.createElement('div');
+            listItem.className = 'list-group-item';
+
+            const levelIcons = {
+                '잣밥': '👎',
+                '일반인': '👨‍🦲',
+                '논란 작가': '✍',
+                '논란의 달인': '💠',
+                '논란의 신': '💎',
+                '논란 그자체': '👑'
+            };
+
+            const levelClasses = {
+                '잣밥': 'level-bronze',
+                '일반인': 'level-silver',
+                '논란 작가': 'level-gold',
+                '논란의 달인': 'level-platinum',
+                '논란의 신': 'level-diamond',
+                '논란 그자체': 'level-master'
+            };
+
+        // 권한 체크
+        const isAdmin = currentUser === 'master@0422';
+        const canDelete = post.username === currentUser || isAdmin;
+        const canExplain = (
+            (post.category === '버비' && username === '버비(조XX)') ||
+        (post.category === '지비' && username === '지비(박XX)') ||
+        (post.category === '지니' && username === '지니(김XX)') ||
+        (post.category === '서빈' && username === '서빈(김XX)') ||
+        (post.category === '서연' && username === '서연(남XX)') ||
+        (post.category === '유만' && username === '유만(이XX)') ||
+        (post.category === '남규' && username === '남규(김XX)') ||
+        (post.category === '똥개' && username === '똥개(서XX)') ||
+        username === 'master@0422'
+        ) && !post.explanation;
+
+        // 해명 삭제 권한 체크
+        const canDeleteExplanation = (
+            (post.category === '버비' && username === '버비(조XX)') ||
+        (post.category === '지비' && username === '지비(박XX)') ||
+        (post.category === '지니' && username === '지니(김XX)') ||
+        (post.category === '서빈' && username === '서빈(김XX)') ||
+        (post.category === '서연' && username === '서연(남XX)') ||
+        (post.category === '유만' && username === '유만(이XX)') ||
+        (post.category === '남규' && username === '남규(김XX)') ||
+        (post.category === '똥개' && username === '똥개(서XX)') ||
+        username === 'master@0422'||
+            isAdmin
+        );
+
+        const hasLiked = post.likes?.users?.some(like => like.username === currentUser);
+
+        // 해명 관련 HTML
+        let explanationHTML = '';
+        if (post.explanation) {
+            explanationHTML = `
+                <div class="explanation-box">
+                    <div class="explanation-header d-flex justify-content-between align-items-center">
+                        <span class="explanation-label">💬 해명:</span>
+                        ${canDeleteExplanation ? `
+                            <button class="btn btn-sm btn-outline-danger delete-explanation-btn"
+                                    onclick="deleteExplanation('${post._id}')">
+                                ❌ 해명 삭제
+                            </button>
+                        ` : ''}
+                    </div>
+                    <span class="explanation-content">${post.explanation.content}</span>
+                    <small class="explanation-time">
+                        ${new Date(post.explanation.timestamp).toLocaleString()}
+                    </small>
+                </div>
+            `;
+        } else if (canExplain) {
+            explanationHTML = `
+                <div class="explanation-form mt-2">
+                    <div class="input-group">
+                        <input type="text" 
+                               id="explanation-input-${post._id}" 
+                               class="form-control" 
+                               maxlength="30" 
+                               placeholder="30자 이내로 해명하기">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" 
+                                    onclick="addExplanation('${post._id}')">
+                                해명하기
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        listItem.innerHTML = `
+                <div class="post-header">
+                    <span class="post-title">📌 ${post.title || ''}</span>
+                    <span class="post-username">
+                        👤 ${post.username || ''} 
+                        <span class="level-badge ${levelClasses[userData.level]}">
+                            ${levelIcons[userData.level]} ${userData.level}
+                        </span>
+                    </span>
+                </div>
+                <div class="post-content">
+                    ${post.description || ''}
+                </div>
+            ${explanationHTML}
+            <div class="post-footer">
+                <div class="post-actions">
+                    <div class="like-container">
+                        <button id="like-btn-${post._id}" 
+                                class="btn btn-like ${hasLiked ? 'liked' : ''}"
+                                onclick="handleLike('${post._id}')">
+                            ${hasLiked ? '❤️' : '🤍'}
+                        </button>
+                        <span class="like-text">인정</span>
+                        <span id="like-count-${post._id}" class="like-count">
+                            ${post.likes?.count || 0}
+                        </span>
+                    </div>
+                </div>
+                <span class="post-timestamp">
+                    ⏰ ${new Date(post.timestamp).toLocaleString()}
+                </span>
+                ${canDelete ? `
+                    <button class="btn btn-outline-danger btn-sm delete-btn" 
+                            onclick="deletePost('${post._id}')">
+                        🗑️ 삭제
+                    </button>
+                ` : ''}
+            </div>
+        `;
+        container.appendChild(listItem);
+                } catch (error) {
+                    console.error('게시물 렌더링 오류:', error);
+                }
+            }
+        }
+
+        // 페이지 로드 시 실행
+        document.addEventListener('DOMContentLoaded', () => {
+            displayUserInfo();
+        });
+
+
+window.addExplanation = async function(postId) {
+    try {
+        const input = document.getElementById(`explanation-input-${postId}`);
+        const content = input.value.trim();
+        
+        if (!content) {
+            alert('해명 내용을 입력해주세요.');
+            return;
+        }
+
+        if (content.length > 30) {
+            alert('해명은 30자를 초과할 수 없습니다.');
+            return;
+        }
+
+        const username = localStorage.getItem('username');
+        if (!username) {
+            alert('로그인이 필요합니다.');
+            return;
+        }
+
+        const response = await fetch(`/post/${postId}/explain`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ content, username })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.error || '해명 저장 실패');
+        }
+
+        alert('해명이 저장되었습니다.');
+        window.location.reload();
+
+    } catch (error) {
+        console.error('해명 저장 오류:', error);
+        alert(error.message || '해명 저장 중 오류가 발생했습니다.');
+    }
+};
+
+window.deleteExplanation = async function(postId) {
+    try {
+        if (!confirm('정말 이 해명을 삭제하시겠습니까?')) {
+            return;
+        }
+
+        const username = localStorage.getItem('username');
+        if (!username) {
+            alert('로그인이 필요합니다.');
+            return;
+        }
+
+        const response = await fetch(`/post/${postId}/explain`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.error || '해명 삭제 실패');
+        }
+
+        alert('해명이 삭제되었습니다.');
+        window.location.reload();
+
+    } catch (error) {
+        console.error('해명 삭제 오류:', error);
+        alert(error.message || '해명 삭제 중 오류가 발생했습니다.');
+    }
+};
+
+    async function addExplanation(postId) {
+    try {
+        const username = localStorage.getItem('username');
+        const input = document.getElementById(`explanation-input-${postId}`);
+        const explanation = input.value.trim();
+
+        if (!explanation) {
+            alert('해명 내용을 입력해주세요.');
+            return;
+        }
+
+        if (explanation.length > 30) {
+            alert('해명은 30자를 초과할 수 없습니다.');
+            return;
+        }
+
+        const response = await fetch(`/post/${postId}/explain`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username, explanation })
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            alert('해명이 추가되었습니다.');
+            window.location.reload();
+        } else {
+            alert(data.error);
+        }
+    } catch (error) {
+        console.error('해명 추가 오류:', error);
+        alert('해명 추가 중 오류가 발생했습니다.');
+    }
+}
+
+    // 삭제 함수
+    async function deletePost(postId) {
+        try {
+            if (!confirm('정말 이 게시물을 삭제하시겠습니까?')) {
+                return;
+            }
+
+            const response = await fetch(`/post/${postId}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ 
+                    username: username,
+                    isMaster: isMasterUser(username)
+                })
+            });
+
+            if (!response.ok) {
+                const data = await response.json();
+                throw new Error(data.error || '삭제 실패');
+            }
+
+            alert('게시물이 삭제되었습니다.');
+            window.location.reload();
+            
+        } catch (error) {
+            console.error('삭제 오류:', error);
+            alert(error.message || '게시물 삭제 중 오류가 발생했습니다.');
+        }
+    }
+
+    // 페이지 로드 시 사용자 정보 표시
+    document.addEventListener('DOMContentLoaded', function() {
+        const currentUsername = document.getElementById('currentUsername');
+        if (currentUsername) {
+            currentUsername.textContent = username;
+        }
+    });
+   
+    
+
+
+        function showThinking(event) {
+        event.preventDefault();
+        const messages = [
+            "음... 뭘 추가하면 좋을까요? 🤔",
+            "아직 고민중입니다... 💭",
+            "좋은 아이디어 있으신가요? 💡",
+            "곧 추가될 예정입니다! ⏳",
+            "열심히 생각하는 중... 🧐",
+            "왜 자꾸 눌러보시는 거죠?😒",
+            "할 일이 없으신가요?😎",
+            "당신은 시간 낭비를 하고 계십니다😜",
+            "손가락 안아프신가요?👀",
+            "고양이가 머리를 하면? 미용~ 미용~🐱ㅋㅋ",
+            "엄마가 도둑질하면? 모서리👵ㅋㅋ",
+            "떡집 사장이 주식을 안 하는 이유는? 떡 상할까봐🥮ㅋㅋ",
+            "오리가 조용히 말하면? 덕수궁 수궁🦢ㅋㅋ",
+        ];
+        const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+        alert(randomMessage);
+        
+        // 이모지 애니메이션 효과
+        const emoji = event.target.querySelector('🤔');
+        if (emoji) {
+            emoji.classList.add('thinking-animation');
+            setTimeout(() => {
+                emoji.classList.remove('thinking-animation');
+            }, 1000);
+        }
+    }
+
+
+    async function displayUserInfo() {
+    try {
+        const username = localStorage.getItem('username');
+        if (!username) return;
+
+        const response = await fetch(`/user/${username}`);
+        const userData = await response.json();
+
+        // 등급 아이콘 설정
+        const levelIcons = {
+            '잣밥': '👎',
+                '일반인': '👨‍🦲',
+                '논란 작가': '✍',
+                '논란의 달인': '💠',
+                '논란의 신': '💎',
+                '논란 그자체': '👑'
+        };
+
+        const userInfoHTML = `
+            <div class="user-info">
+                <span class="user-level">${levelIcons[userData.level]} ${userData.level}</span>
+                <span class="user-exp">EXP: ${userData.exp}</span>
+            </div>
+        `;
+
+        // 사용자 정보를 표시할 위치에 삽입
+        const userInfoContainer = document.getElementById('userInfo');
+        if (userInfoContainer) {
+            userInfoContainer.innerHTML = userInfoHTML;
+        }
+    } catch (error) {
+        console.error('사용자 정보 조회 오류:', error);
+    }
+}
+
+
+
+
+
+
+// 경험치 업데이트 함수
+async function updateUserExp(username, expAmount) {
+    try {
+        const response = await fetch(`/user/${username}/exp`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ expAmount })
+        });
+
+        const data = await response.json();
+        
+        // UI 업데이트만 수행
+        displayUserInfo();
+        
+    } catch (error) {
+        console.error('경험치 업데이트 오류:', error);
+    }
+}
+
+  </script>
+    </script>
+    <!-- Optional JavaScript -->
+    
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

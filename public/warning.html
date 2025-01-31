@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주의사항</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .warning-card {
+            max-width: 800px;
+            margin: 40px auto;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .warning-header {
+            background-color: #dc3545;
+            color: white;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            padding: 20px;
+        }
+        .warning-body {
+            padding: 30px;
+        }
+        .warning-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .warning-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 10px;
+            border-left: 4px solid #dc3545;
+        }
+        .warning-footer {
+            color: #dc3545;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+            font-size: 1.2em;
+        }
+        .home-button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card warning-card">
+            <div class="warning-header">
+                <h2 class="text-center mb-0">⚠️ 주의사항 ⚠️</h2>
+            </div>
+            <div class="warning-body">
+                <ul class="warning-list">
+                    <li class="warning-item">
+                        <h4>1. 본인 이름만 사용하기</h4>
+                        <p>이름은 다음과 같이 본인 것만 사용해주세요:</p>
+                        <ul>
+                            <li>버비(조XX)</li>
+                            <li>지니(김XX)</li>
+                            <li>지비(박XX)</li>
+                            <li>서빈(김XX)</li>
+                            <li>똥개(서XX)</li>
+                            <li>남규(김XX)</li>
+                            <li>서연(남XX)</li>
+                            <li>유만(이XX)</li>
+                        </ul>
+                        <p class="text-danger">※ 다른 사람의 이름으로 글 작성 금지</p>
+                    </li>
+                    <li class="warning-item">
+                        <h4>2. 삭제 기능 신중히 사용하기</h4>
+                        <p>작성된 글은 함부로 삭제하지 말아주세요.</p>
+                        <p class="text-danger">※ 삭제 기능 무분별한 사용 금지</p>
+                    </li>
+                </ul>
+                <div class="warning-footer">
+                    <p>※ 안지키면 큰일남 ※</p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <button onclick="window.location.href='/'" class="btn btn-dark home-button">
+                홈으로 돌아가기
+            </button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

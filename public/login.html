@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지비위키 로그인</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .login-container {
+            max-width: 400px;
+            width: 90%;
+        }
+        .login-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+        .login-title {
+            color: #333;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: bold;
+        }
+        .form-control {
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 1rem;
+        }
+        .btn-login {
+            background-color: #007bff;
+            border: none;
+            border-radius: 10px;
+            padding: 12px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .logo h1 {
+            font-size: 2.5rem;
+            color: #007bff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="logo">
+                <h1>지비위키</h1>
+            </div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">사용자 이름</label>
+                    <input type="text" class="form-control" id="username" 
+                           placeholder="사용자 이름을 입력하세요" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-login btn-block">
+                    로그인
+                </button>
+            </form>
+        </div>
+    </div>
+    <script>
+        const ALLOWED_USERS = {
+            '버비(조XX)': '버비(조XX)',
+            '지비(박XX)': '지비(박XX)',
+            '지니(김XX)': '지니(김XX)',
+            '서빈(김XX)': '서빈(김XX)',
+            '똥개(김XX)': '똥개(서XX)',
+            '남규(김XX)': '남규(김XX)',
+            '서연(이XX)': '서연(남XX)',
+            '유만(이XX)': '유만(이XX)'
+        };
+    
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+    
+            const username = document.getElementById('username').value.trim();
+            
+            // master 계정 체크
+            if (username === 'master@0422') {
+                localStorage.setItem('username', 'master@0422');
+                alert('관리자로 로그인했습니다. 모든 게시물을 삭제할 수 있습니다.');
+                window.location.href = '/';
+                return;
+            }
+    
+            // 허용된 사용자 체크
+            let isAllowed = false;
+            for (const [nickname, fullName] of Object.entries(ALLOWED_USERS)) {
+                if (username === nickname || username === fullName) {
+                    isAllowed = true;
+                    // 닉네임으로 저장 (일관성을 위해)
+                    localStorage.setItem('username', nickname);
+                    window.location.href = '/';
+                    return;
+                }
+            }
+    
+            // 허용되지 않은 사용자
+            if (!isAllowed) {
+                alert('허용되지 않은 사용자입니다.');
+                document.getElementById('username').value = '';
+                return;
+            }
+        });
+    
+        // 사용자 이름 입력 시 도움말 표시
+        document.getElementById('username').addEventListener('focus', function() {
+            const helpText = document.createElement('div');
+            helpText.id = 'loginHelp';
+            helpText.className = 'form-text text-muted small mt-2';
+            helpText.innerHTML = '허용된 사용자: 버비(조XX), 지비(박XX), 지니(김XX), 서빈(김XX), 똥개(서XX), 남규(김XX), 서연(남XX), 유만(이XX)';
+            
+            if (!document.getElementById('loginHelp')) {
+                this.parentNode.appendChild(helpText);
+            }
+        });
+    
+        // 포커스 잃을 때 도움말 제거
+        document.getElementById('username').addEventListener('blur', function() {
+            const helpText = document.getElementById('loginHelp');
+            if (helpText) {
+                helpText.remove();
+            }
+        });
+    </script>
+    
+    <style>
+        .form-text {
+            font-size: 0.85rem;
+            color: #6c757d;
+            margin-top: 0.5rem;
+        }
+    </style>
+    
+</body>
+</html>
